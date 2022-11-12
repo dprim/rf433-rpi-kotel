@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+RFJS_PATH=$(cd $HOME"/rf433-rpi-kotel/js" && pwd)
+
+$RFJS_PATH/rf433.js start
+
+exit 0

@@ -1,0 +1,12 @@
+{
+  "name": "rf433-rpi-kotel",
+  "author": {
+    "name": "DanP",
+    "email": "danp@priml.dev"
+  },
+  "packageManager": "yarn@3.2.4",
+  "dependencies": {
+    "rpi-433-v3": "^1.2.0"
+  },
+  "license": "MTI"
+}
