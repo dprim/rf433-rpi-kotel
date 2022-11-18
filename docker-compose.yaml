@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # install:
+  #   image: di.prim.dev/kotel:latest
+  #   restart: on-failure
+  #   command: yarn run start
+  #   working_dir: /app
+  #   volumes:
+  #     - .:/app
+  #     - kotel_node_modules:/app/node_modules
+  #     - /etc/localtime:/etc/localtime:ro
+  switch:
+    image: di.prim.dev/kotel:latest
+    restart: always
+    command: yarn run start
+    working_dir: /app
+    volumes:
+      - .:/app
+      - kotel_node_modules:/app/node_modules
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      - /dev/gpiomem:/dev/gpiomem:rwm
+      - /dev/gpiochip0:/dev/gpiochip0:rwm
+      - /dev/gpiochip1:/dev/gpiochip1:rwm
+      - /dev/gpiochip2:/dev/gpiochip2:rwm
+    environment:
+      - TZ=Europe/Prague
+      - PATH=$PATH:/app/bin
+    expose:
+      - 8556
+    networks:
+      hassio:
+        aliases:
+          - kotel
+
+volumes:
+  kotel_node_modules:
+    driver: local
+    name: kotel_node_modules
+
+networks:
+  hassio:
+    external: true
+    name: hassio

@@ -20,8 +20,8 @@ const rpi433 = require("rpi-433-v3"),
   },
   rfEmitter = rpi433.emitter({
     pin: 7, //Send through GPIO 0 (or Physical PIN 11)
-    pulseLength: 500, //Send the code with a 350 pulse length
-    protocol: 4 //Set the protocol.
+    pulseLength: 450, //Send the code with a 350 pulse length
+    protocol: 1 //Set the protocol.
   });
 let { code, debug } = defArgs;
 

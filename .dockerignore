@@ -1,0 +1,11 @@
+.git/*
+.pnp.*
+.yarn/cache
+.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+core
+docker-compose.y*ml
+node_modules

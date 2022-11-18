@@ -6,7 +6,18 @@
   },
   "packageManager": "yarn@3.2.4",
   "dependencies": {
+    "express": "^4.18.2",
     "rpi-433-v3": "^1.2.0"
   },
-  "license": "MTI"
+  "directories": {
+    "bin": "bin",
+    "lib": "js"
+  },
+  "esnext": "index.js",
+  "types": "./types/*.d.ts",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "license": "MIT",
+  "type": "module"
 }
