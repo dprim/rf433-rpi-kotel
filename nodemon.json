@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/nodemon",
+  "watch": ["*.js", "js/*.js", "*.json"],
+  "delay": 1000,
+  "exitcrash": false,
+  "ignore": [
+    ".vscode",
+    "core",
+    ".gitignore",
+    "node_modules"
+  ]
+}

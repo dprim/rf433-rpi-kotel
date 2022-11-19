@@ -1,5 +1,7 @@
 version: '3.8'
 
+
+
 services:
   # install:
   #   image: di.prim.dev/kotel:latest
@@ -13,7 +15,7 @@ services:
   switch:
     image: di.prim.dev/kotel:latest
     restart: always
-    command: yarn run start
+    command: yarn run ${YARN_RUN_CMD:-start}
     working_dir: /app
     volumes:
       - .:/app
@@ -22,15 +24,23 @@ services:
     devices:
       - /dev/gpiomem:/dev/gpiomem:rwm
       - /dev/gpiochip0:/dev/gpiochip0:rwm
-      - /dev/gpiochip1:/dev/gpiochip1:rwm
-      - /dev/gpiochip2:/dev/gpiochip2:rwm
     environment:
       - TZ=Europe/Prague
       - PATH=$PATH:/app/bin
-    expose:
-      - 8556
+      - NODE_ENV=${NODE_ENV:-production}
+      - PORT=${PORT:-8433}
+      - HOST=${HOST:-127.0.0.1}
+    ports:
+      - ${HOST:-127.0.0.1}:${PUB_PORT:-${PORT:-8433}}:${PORT:-8433}
+    hostname: hassio-rf433
+    domainname: local.hass.io
+    dns_search:
+      - local.hass.io
+    dns:
+      - 172.30.32.3
     networks:
       hassio:
+        ipv4_address: 172.30.33.0
         aliases:
           - kotel
 
@@ -42,4 +52,3 @@ volumes:
 networks:
   hassio:
     external: true
-    name: hassio

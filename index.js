@@ -1,3 +1,5 @@
 import kotel from "./js/kotel.js";
 
-kotel.run();
+const port = process.env.PORT || undefined;
+
+kotel.run(port);

@@ -11,3 +11,4 @@
 .pnp.*
 core
 node_modules
+.vscode/*
